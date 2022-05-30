@@ -5,18 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-    <form action="/login" method="post">
-        {% csrf_token %}
-        <label for="">Name</label>
-        <input type="text" name="name" placeholder="Name">
-        <br>
-        <br>
-        <label for="">Password</label>
-        <input type="password" name="password" placeholder="Password">
-        <br>
-        <button type="submit">Login</button>
-    </form>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <div>
+        <h1>SecretMessages</h1>
+        <p>Send Anonymous Messages</p>
+    </div>
+    <div class="centre">
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <label for="">Name</label>
+            <input type="text" name="name" placeholder="Name">
+            <br>
+            <br>
+            <label for="">Password</label>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <br>
+            <p>Don't have an account?<a href="/register">Sign up</a></p>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
