@@ -1,0 +1,35 @@
+body{
+    /* background-color:aqua !important; */
+}
+h1,h2,p{
+    padding: 10px;
+    text-align: center;
+}
+
+.box{
+    border-radius: 20px;
+    margin-left: 12.5vw;
+    width: 75vw;
+    padding: 5%;
+    text-align: center;
+    background-color: aqua;
+}
+
+.messages-box{
+    width: 75vw;
+    margin-left: 12.5vw;
+    text-align: center;
+}
+.msg-box{
+    /* border-radius: 15px 50px 30px;; */
+    border-radius: 15px 50px;
+    background-color: aquamarine;
+}
+.msg_body{
+    font-size: large;
+}
+.centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
