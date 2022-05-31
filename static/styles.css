@@ -1,7 +1,5 @@
-body{
-    /* background-color:aqua !important; */
-}
-h1,h2,p{
+
+h1,h2,h4,p{
     padding: 10px;
     text-align: center;
 }
@@ -11,14 +9,19 @@ h1,h2,p{
     margin-left: 12.5vw;
     width: 75vw;
     padding: 5%;
-    text-align: center;
-    background-color: aqua;
+    text-align: center;     
 }
 
 .messages-box{
     width: 75vw;
     margin-left: 12.5vw;
     text-align: center;
+    border-radius: 10px;
+    /* background-color: cornflowerblue; */
+    padding: 5px;
+}
+.msg-box>h2{
+    text-align: start;
 }
 .msg-box{
     /* border-radius: 15px 50px 30px;; */
@@ -32,4 +35,15 @@ h1,h2,p{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.link-txt{
+    word-wrap: break-word;
+}
+.final-box{
+    width: 75vw;
+    margin-left: 12.5vw;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: bisque;
 }
