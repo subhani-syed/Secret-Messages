@@ -12,11 +12,11 @@ from django.contrib import messages
 @login_required
 def home(request):
     cur_user = request.user
-    context={
+    context={   
         "user_name":cur_user.username,
         "user_id":cur_user.id,
-        'msgs':reversed(Message.objects.filter(uid = intToHash(cur_user.id))),
-        'hvalue':intToHash(cur_user.id),
+        'msgs':reversed(Message.objects.filter(uid = int_to_hash(cur_user.id))),
+        'hvalue':int_to_hash(cur_user.id),
     }
     return render(request,'home.html',context)
 
@@ -49,9 +49,7 @@ def register(request):
     if request.method == "POST":
         name = request.POST['name']
         password = request.POST['password']
-        lname = request.POST['lname']
-        fname = request.POST['fname']
-        user = User.objects.create_user(username=name,password=password,last_name=lname,first_name=fname)
+        user = User.objects.create_user(username=name,password=password)
         user.save()
         messages.success(request,"User Created Successfully")
         return redirect("/")
@@ -60,13 +58,13 @@ def register(request):
     return render(request,'register.html')
 
 
-def sendMessage(request,u_id):
+def send_message(request,u_id):
     
     # To Find The Username from Link
     obj = User.objects.all()
     out=""
     for x in obj:
-        if intToHash(x.id) == u_id:
+        if int_to_hash(x.id) == u_id:
             out = x.username
 
     # Check if the slug is valid or not
@@ -92,6 +90,6 @@ def sendMessage(request,u_id):
         return redirect("/")
     
 # Converts Int to Hash Value
-def intToHash(inp):
+def int_to_hash(inp):
     str_inp = f"{inp}"
     return hashlib.md5(str_inp.encode()).hexdigest()
